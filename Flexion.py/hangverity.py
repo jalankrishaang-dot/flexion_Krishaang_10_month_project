@@ -1,16 +1,15 @@
-#This is the start of my stickman game
-#everyone starts with nothing and has 6 chances to get to the end of the game. If you fail, you lose. If you succeed, you win.
+\
+# This is the start of my stickman game
+# Everyone starts with nothing and has 6 chances to get to the end of the game.
+# If you fail, you lose. If you succeed, you win.
 
 import random
-
-from activity import new_function
-
 
 player_name = "new player"
 number_of_chances = 6
 number_of_right_letters = 0
 
-name=input("What is your name? ")
+name = input("What is your name? ")
 if name:
     player_name = name
     print("Welcome to the game, " + player_name + "! You have " + str(number_of_chances) + " chances to win.")
@@ -22,7 +21,7 @@ if selected_word:
     print("The word has been selected. It has " + str(len(selected_word)) + " letters.")
     print("You have " + str(number_of_chances) + " chances to guess the word.")
 
-chance=input ("guess the first letter of the word: ")
+chance = input("Guess the first letter of the word: ")
 
 if chance:
     if chance in selected_word:
@@ -32,12 +31,10 @@ if chance:
         number_of_chances -= 1
         print("Sorry, that letter is not in the word. You have " + str(number_of_chances) + " chances left.")
 
-
-
-#This is the part where the player can choose to see where the letter is in the word
+# This is the part where the player can choose to see where the letter is in the word
 
 show_where = input("Do you want to see where the letter is in the word? (yes/no) ")
-if show_where == "yes":
+if show_where.strip().lower() == "yes":
     positions = [i for i, letter in enumerate(selected_word, start=1) if letter == chance]
     print("The letter " + chance + " is in the following positions: " + str(positions))
 
@@ -46,7 +43,7 @@ if repeat.strip().lower() == "no":
     print("Thank you for playing, " + player_name + "!")
     print("The word was '" + selected_word + "'. Better luck next time!")
 
-if repeat == "yes":
+if repeat.strip().lower() == "yes":
     while number_of_chances > 0 and number_of_right_letters < len(selected_word):
         chance = input("Guess another letter: ")
         if chance in selected_word:
@@ -55,13 +52,12 @@ if repeat == "yes":
         else:
             number_of_chances -= 1
             print("Sorry, that letter is not in the word. You have " + str(number_of_chances) + " chances left.")
-        new_function()
 
         show_where = input("Do you want to see where the letter is in the word? (yes/no) ")
-        if show_where == "yes":
+        if show_where.strip().lower() == "yes":
             positions = [i for i, letter in enumerate(selected_word, start=1) if letter == chance]
-
             print("The letter " + chance + " is in the following positions: " + str(positions))
+
 if number_of_right_letters == len(selected_word):
     print("Congratulations, " + player_name + "! You have guessed the word correctly and won the game!")
 
@@ -85,10 +81,5 @@ if number_of_chances == 0:
             print("A new word has been selected. It has " + str(len(selected_word)) + " letters.")
             print("You have " + str(number_of_chances) + " chances to guess the word.")
 
-# The game was just my project for semester 1 
+# The game was just my project for semester 1
 # Thank you for playing my game. I hope you enjoyed it!
-
-
-        
-
-
