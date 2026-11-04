@@ -104,7 +104,7 @@ try:
 
     with open("game_results.txt", "r") as file:
         saved_games = file.read()
-        
+
 except OSError:
     print("There was a problem saving or reading the game.")
 
@@ -118,3 +118,5 @@ finally:
 
 # The game was just my project for semester 1
 # Thank you for playing my game. I hope you enjoyed it!
+  
+#i hope this is good
